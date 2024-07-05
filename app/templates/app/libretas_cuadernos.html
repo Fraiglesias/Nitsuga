@@ -1,0 +1,340 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<section class="page-section bg-dark text-white mb-0" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Libretas y cuadernos</h2>
+            <h3 class="subtitle-category section-subheading">Revisa nuestra variedad de libretas y cuadernos disponible :</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Categoría 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libretas_cuadernoss.jpg' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Libreta gatito</div>
+                        <div class="portfolio-caption-subheading text-muted">$1.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute1.jpg' %}"^ alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Libreta Conejitos</div>
+                        <div class="portfolio-caption-subheading text-muted">$2.490 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute2.png' %}"^ alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Libreta Conejita</div>
+                        <div class="portfolio-caption-subheading text-muted">$2.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- Portfolio item 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute3.jpg' %}"^ alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Libreta Panda</div>
+                        <div class="portfolio-caption-subheading text-muted">$2.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- Portfolio item 5-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute4.jpg' %}"^ alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Libreta Vaca</div>
+                        <div class="portfolio-caption-subheading text-muted">$1.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- Portfolio item 6-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute5.jpg' %}"^ alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Libreta Planetas</div>
+                        <div class="portfolio-caption-subheading text-muted">$2.990 c/u/div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+
+<!-- Portfolio Modals-->
+<!-- Portfolio item 1 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Libreta gatito</h2>
+                            <p class="item-intro text-muted">Mini libreta diseño gato.</p>
+                            <div id="carouselExample" class="carousel slide">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <img src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libretas_cuadernoss.jpg' %}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libretas_cuadernoss2.JPEG' %}" class="d-block w-100" alt="...">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libretas_cuadernoss3.JPEG' %}" class="d-block w-100" alt="...">
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <p>Mini libreta de 10cm con diseño de gatito. Diferentes colores disponibles. Tamaño ideal para bolsos o mochilas pequeñas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Rosa, Celeste, Amarillo
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $1.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 2 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Libreta Conejitos</h2>
+                            <p class="item-intro text-muted">Mini libreta diseño conejo/oso.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute1.jpg' %}" alt="..." />
+                            <p>Mini libreta de 10cm con diseño de conejito/osito. Diferentes colores y diseños disponibles. Tamaño ideal para bolsos o mochilas pequeñas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Rosa, Celeste, Violeta
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $2.490 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 3 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Libreta Conejita</h2>
+                            <p class="item-intro text-muted">Mini libreta diseño conejita.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute2.png' %}" alt="..." />
+                            <p>Mini libreta de 15cm con diseño de conejita. Diferentes colores y diseños disponibles. Tamaño ideal para bolsos o mochilas pequeñas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Rosa, Celeste, Violeta, Verde
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $2.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 4 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Libreta Panda</h2>
+                            <p class="item-intro text-muted">Mini libreta diseño panda.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute3.jpg' %}" alt="..." />
+                            <p>Mini libreta de 13cm con diseño de panda. Diferentes colores y diseños disponibles. Tamaño ideal para bolsos o mochilas pequeñas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Rosa, Azul, Celeste
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $2.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 5 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Libreta Vaca</h2>
+                            <p class="item-intro text-muted">Mini libreta diseño vaca.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute4.jpg' %}" alt="..." />
+                            <p>Mini libreta de 10cm con diseño de vaca. Diferentes colores y diseños disponibles. Tamaño ideal para bolsos o mochilas pequeñas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Rosa, Azul, Verde, Violeta
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $1.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 6 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Libreta Planetas</h2>
+                            <p class="item-intro text-muted">Mini libreta diseño planetas.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/libretas_cuadernos/libreta_cute5.jpg' %}" alt="..." />
+                            <p>Mini libreta de 15cm con diseño de planetas. Diferentes diseños disponibles. Tamaño ideal para bolsos o mochilas pequeñas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Diseños:</strong>
+                                    Saturno, Urano, Neptuno, Tierra
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $2.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

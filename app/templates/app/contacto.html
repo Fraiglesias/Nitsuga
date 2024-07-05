@@ -1,0 +1,88 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+    <section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Contáctanos ツ</h2>
+            <h3 class="subtitle-category section-subheading">Completa el formulario de contacto y te responderemos a la brevedad. Recuerda que también tenemos teléfonos y correos de contacto para hacer más expedito tu requerimiento ツ</h3>
+        </div>
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+            <div class="row align-items-stretch mb-5">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- Ingresar nombre-->
+                        <input class="form-control" id="name" type="text" placeholder="Nombre *" data-sb-validations="required" />
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Tu nombre es obligatorio.</div>
+                    </div>
+                    <div class="form-group">
+                        <!-- Ingresar apellido-->
+                        <input class="form-control" id="name" type="text" placeholder="Apellido *" data-sb-validations="required" />
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Tu apellido es obligatorio.</div>
+                    </div>
+                    <div class="form-group">
+                        <!-- Ingresar correo-->
+                        <input class="form-control" id="email" type="email" placeholder="Correo electrónico *" data-sb-validations="required,email" />
+                        <div class="invalid-feedback" data-sb-feedback="email:required">Tu correo es obligatorio.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">El correo debe tener un formato válido.</div>
+                    </div>
+                    <div class="form-group mb-md-0">
+                        <!-- Ingresar teléfono -->
+                        <input class="form-control" id="phone" type="tel" placeholder="Teléfono *" data-sb-validations="required" />
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">Tu teléfono es obligatorio.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-md-0">
+                        <!-- Mensaje -->
+                        <textarea class="form-control" id="message" placeholder="Escribe aquí tu mensaje *" data-sb-validations="required"></textarea>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">El mensaje es obligatorio.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Formulario enviado con éxito-->
+            <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center text-white mb-3">
+                    <div class="fw-bolder">¡Mensaje enviado con éxito!</div>
+                    Sigue viendo nuestros productos en
+                    <br />
+                    <a href="./categorias.html">Nuestras categorías</a>
+                </div>
+            </div>
+            <!-- Error al enviar el formulario-->
+            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">¡Oh no! Ha ocurrido un error :( intenta nuevamente.</div></div>
+            <!-- Botón de enviar-->
+            <div class="text-center"><button class="btn btn-outline-light btn-xl text-uppercase disabled" id="submitButton" type="submit">Enviar mensaje</button></div>
+        </form>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <gmp-map
+                    center="-33.36335036624574, -70.67819593336526"
+                    zoom="16"
+                    map-id="DEMO_MAP_ID"
+                    style="height: 200px"
+                >
+                    <gmp-advanced-marker
+                        position="-33.36335036624574, -70.67819593336526"
+                        title="Duoc UC"
+                    ></gmp-advanced-marker>
+                </gmp-map>
+            </div>
+            <div class="col-lg-6 text-lg-start">
+                <ul class="list-group-two">
+                    <li class="list-group-item text-white">Correo:  <p class="text-lg-start">contacto@nitsuga.com</p></li>
+                    <li class="list-group-item text-white">Teléfonos: <p class="text-lg-start">+56 9 6398 1498 <br /> +56 9 5004 2445</p></li>
+                    <li class="list-group-item text-white">Dirección: <p class="text-lg-start">Sta. Elena de Huechuraba 1660, <br /> Huechuraba, Región Metropolitana</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<section class="page-section bg-dark text-white mb-0" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Nosotros</h2>
+            <h3 class="subtitle-category section-subheading">Desde nuestros inicios.</h3>
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'app/assets/img/about/1.jpg' %}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Sept-2023</h4>
+                        <h4 class="subheading">Nuestro comienzo</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Comenzamos a idear nuestro proyecto, viendo los pros y contras, nuestros potenciales clientes, estudio del mercado y demás.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'app/assets/img/about/2.jpg' %}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Nov-2023</h4>
+                        <h4 class="subheading">Nace nuestra marca</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Encontramos nuestro logo perfecto, nuestra marca, nuestro distintivo. Aquí comienza Nitsuga.</p></div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'app/assets/img/about/3.jpg' %}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Marzo-2024</h4>
+                        <h4 class="subheading">Oficializamos nuestro negocio</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Lanzamos nuestros primeros productos al mercado teniendo un éxito inesperado. Aquí comenzó nuestra expansión.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'app/assets/img/about/4.jpg' %}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Abril-2024</h4>
+                        <h4 class="subheading">Expansión y servicios</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Desde aquí comenzamos nuestro servicio de entrega a la puerta con ventas online y presencial hasta la fecha actual.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <h4>
+                        ¡Sé parte
+                        <br />
+                        de nuestra
+                        <br />
+                        historia!
+                    </h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}

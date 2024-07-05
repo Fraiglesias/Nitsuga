@@ -1,0 +1,110 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Inicia sesión o registrate</title>
+<link rel="icon" type="image/x-icon" href="{% static 'app/assets/favicon.ico' %}" />
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="{% static 'app/css/styles.css' %}" rel="stylesheet" />
+<link href="{% static 'app/css/stylestwo.css' %}" rel="stylesheet" />
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href="{% static 'app/assets/img/login/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'app/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'app/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'app/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'app/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href="{% static 'app/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'app/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'app/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href="{% static 'app/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/util.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/main.css' %}">
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-43">
+                    Identifícate
+                </span>
+                
+
+                <div class="wrap-input100 validate-input" data-validate = "Ingrese un correo electrónico válido: ex@abc.xyz">
+                    <input class="input100" type="text" name="email">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Correo electrónico</span>
+                </div>
+                
+                
+                <div class="wrap-input100 validate-input" data-validate="La contraseña es obligatoria.">
+                    <input class="input100" type="password" name="pass">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Contraseña</span>
+                </div>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-32">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            Recuérdame
+                        </label>
+                    </div>
+
+                    <div>
+                        <a href="#" class="txt1">
+                            ¿Olvidaste la contraseña?
+                        </a>
+                    </div>
+                </div>
+        
+
+                <div class="container-login100-form-btn">
+                    <button class="btn btn-outline-light login100-form-btn">
+                        Iniciar sesión
+                    </button>
+                </div>
+                
+                <div class="text-center p-t-46 p-b-20">
+                    <span class="txt2">
+                        o regístrate usando
+                    </span>
+                </div>
+
+                <div class="login100-form-social flex-c-m">
+                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                        <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+
+            <div class="login100-more" style="background-image: url('assets/img/login/wallpaperlogin.jpg');">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

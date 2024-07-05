@@ -1,0 +1,319 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<section class="page-section bg-dark text-white mb-0" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Mini Lámparas</h2>
+            <h3 class="subtitle-category section-subheading">Revisa nuestra variedad de pequeñas lamparitas disponibles :</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Producto 1 -->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/lamparas/lampara_charmander.JPEG' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Mini lámpara Hitokage</div>
+                        <div class="portfolio-caption-subheading text-muted">$9.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Producto 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/lamparas/lampara_psyduck.JPEG' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Mini lámpara Psyduck</div>
+                        <div class="portfolio-caption-subheading text-muted">$9.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Producto 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/lamparas/lampara_squartle.JPEG' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Mini lámpara Squirtle</div>
+                        <div class="portfolio-caption-subheading text-muted">$9.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- Producto 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/lamparas/lampara_pikachubocaabajo2.JPEG' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Mini lámpara Pikachu</div>
+                        <div class="portfolio-caption-subheading text-muted">$9.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- Producto 5-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/lamparas/lampara_pikachuestrella.JPEG' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Mini lámpara Pikachu </div>
+                        <div class="portfolio-caption-subheading text-muted">$9.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- Producto 6-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/lamparas/lampara_pikachuladito.JPEG' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Mini lámpara Pikachu</div>
+                        <div class="portfolio-caption-subheading text-muted">$9.990 c/u</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+<!-- Modals de Productos-->
+<!-- Modal popup Producto 1-->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Detalles producto -->
+                            <h2 class="text-uppercase">Mini lámpara Charmander</h2>
+                            <p class="item-intro text-muted">Mini lámpara diseño Pokemón.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/lamparas/lampara_charmander.JPEG' %}" alt="..." />
+                            <p>Pequeña lamparita con diseño de uno de los personajes más reconocidos de Pokemón, Charmander. Con 12cm de alto es capaz de iluminar toda tu habitación con su tenue luz color naranja. Usa pilas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Naranja
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $9.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal popup Producto 2-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Detalles producto -->
+                            <h2 class="text-uppercase">Mini lámpara Psyduck</h2>
+                            <p class="item-intro text-muted">Mini lámpara con diseño Pokemón.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/lamparas/lampara_psyduck.JPEG' %}" alt="..." />
+                            <p>Pequeña lamparita con diseño de uno de los personajes más reconocidos de Pokemón, Psyduck. Con 12cm de alto es capaz de iluminar toda tu habitación con su tenue luz color amarilla. Usa pilas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Amarillo
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $9.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal popup Producto 3-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Detalles producto -->
+                            <h2 class="text-uppercase">Mini lámpara Squartle</h2>
+                            <p class="item-intro text-muted">Mini lámpara con diseño Pokemón.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/lamparas/lampara_squartle.JPEG' %}" alt="..." />
+                            <p>Pequeña lamparita con diseño de uno de los personajes más reconocidos de Pokemón, Squartle. Con 12cm de alto es capaz de iluminar toda tu habitación con su tenue luz color azul. Usa pilas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Azul
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $9.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal popup Producto 4-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Detalles producto -->
+                            <h2 class="text-uppercase">Mini lámpara Pikachu</h2>
+                            <p class="item-intro text-muted">Mini lámpara con diseño Pokemón.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/lamparas/lampara_pikachubocaabajo2.JPEG' %}" alt="..." />
+                            <p>Pequeña lamparita con diseño del personaje más reconocido de Pokemón, Pikachu. Con 10cm de largo es capaz de iluminar toda tu habitación con su tenue luz color amarilla. Éste diseño muestra a Pikachu acostado boca abajo. Usa pilas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Amarillo
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $9.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal popup Producto 5-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Detalles producto -->
+                            <h2 class="text-uppercase">Mini lámpara Pikachu</h2>
+                            <p class="item-intro text-muted">Mini lámpara con diseño Pokemón.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/lamparas/lampara_pikachuestrella.JPEG' %}" alt="..." />
+                            <p>Pequeña lamparita con diseño del personaje más reconocido de Pokemón, Pikachu. Con 10cm de largo es capaz de iluminar toda tu habitación con su tenue luz color amarilla. Éste diseño muestra a Pikachu acostado boca arriba con sus patitas extendidas. Usa pilas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Amarillo
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $9.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal popup Producto 6-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Detalles producto -->
+                            <h2 class="text-uppercase">Mini lámpara Pikachu</h2>
+                            <p class="item-intro text-muted">Mini lámpara con diseño Pokemón.</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/lamparas/lampara_pikachuladito.JPEG' %}" alt="..." />
+                            <p>Pequeña lamparita con diseño del personaje más reconocido de Pokemón, Pikachu. Con 10cm de largo es capaz de iluminar toda tu habitación con su tenue luz color amarilla. Éste diseño muestra a Pikachu acostado de lado en posición fetal. Usa pilas.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Amarillo
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    $9.990 C/U
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
