@@ -48,7 +48,7 @@
                     <div class="fw-bolder">¡Mensaje enviado con éxito!</div>
                     Sigue viendo nuestros productos en
                     <br />
-                    <a href="./categorias.html">Nuestras categorías</a>
+                    <a href="{% url 'categorias' %}">Nuestras categorías</a>
                 </div>
             </div>
             <!-- Error al enviar el formulario-->
@@ -84,5 +84,11 @@
         </div>
     </div>
     </section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAO_eoUMUeSrEkMwEzMd-zXmfGVWSJPqE&libraries=maps,marker&v=beta"></script>
 
 {% endblock %}
