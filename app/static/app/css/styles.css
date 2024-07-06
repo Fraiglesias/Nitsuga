@@ -11327,3 +11327,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 .navcolor {
   color: #000;
 }
+
+.login100-more {
+  background-image: url('static/app/assets/img/login/wallpaperlogin.jpg');
+}

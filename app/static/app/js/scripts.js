@@ -51,4 +51,8 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    function goTo() {
+        window.location.href = "{% url 'login' %}";
+    };
+
 });
