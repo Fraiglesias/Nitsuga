@@ -51,4 +51,84 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+
 });
+
+function agregarAlCarrito(id, nombre, precio) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push({'id': id, 'nombre': nombre, 'precio': precio});
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    Swal.fire({
+        title: "",
+        text: "Producto agregado!",
+        icon: "success"
+    });
+};
+
+function mostrarCarrito() {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    if (carrito.length === 0) {
+      Swal.fire({
+        title: 'Carrito Vacío',
+        text: 'No hay productos en tu carrito.',
+        icon: 'info',
+      });
+      return;
+    } else {
+        let contenidoTabla = `
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
+        carrito.forEach((val, index) => {
+          contenidoTabla += `
+              <tr>
+                <td>${val['nombre']}</td>
+                <td>${val['precio']}</td>
+                <td>
+                  <button onclick="eliminarDelCarrito(${index})" class="btn btn-danger btn-sm">
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+          `;
+        });
+        contenidoTabla += `
+            </tbody>
+          </table>
+          <hr>
+          <button class="btn btn-success btn-block" onclick="comprar()">Comprar</button>
+        `;
+    
+        Swal.fire({
+          title: 'Tu Carrito',
+          html: contenidoTabla,
+          showCloseButton: true,
+          showConfirmButton: false,
+        });
+    }
+  }
+
+function eliminarDelCarrito(index) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.splice(index, 1);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    mostrarCarrito();
+}
+
+function comprar() {
+    Swal.fire({
+      title: "¡Gracias por tu compra!",
+      text: "Tu pedido está siendo procesado. Revisa tu correo con la cotización completa!",
+      icon: "success",
+    });
+    localStorage.removeItem('carrito');
+}

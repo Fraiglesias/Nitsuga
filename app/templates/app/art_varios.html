@@ -4,6 +4,11 @@
 
 {% block contenido %}
 
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'app/js/main.js' %}"></script>
+{% endblock %}
+
 <section class="page-section bg-dark text-white mb-0" id="portfolio">
     <div class="container">
         <div class="text-center">
@@ -129,7 +134,7 @@
                                     $4.990 PACK DE 3 PARES
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Calcetas invisibles', '$4.990 PACK DE 3 PARES')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -164,7 +169,7 @@
                                     $7.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Calentador de manos', '$7.990 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -199,7 +204,7 @@
                                     $3.990 EL PAR
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Guantes de gato', '$3.990 EL PAR')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -251,7 +256,7 @@
                                     $9.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Humidificador de gato', '$9.990 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -286,7 +291,7 @@
                                     $2.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Orejas de gato', '$2.990 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -325,7 +330,7 @@
                                     $9.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Pantuflas HelloKitty', '$9.990 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>

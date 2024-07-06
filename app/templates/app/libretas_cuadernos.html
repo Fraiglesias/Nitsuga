@@ -4,6 +4,11 @@
 
 {% block contenido %}
 
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'app/js/main.js' %}"></script>
+{% endblock %}
+
 <section class="page-section bg-dark text-white mb-0" id="portfolio">
     <div class="container">
         <div class="text-center">
@@ -150,7 +155,7 @@
                                     $1.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" onclick="agregarAlCarrito(1, 'Libreta gatito', '$1.990 C/U')" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -185,7 +190,7 @@
                                     $2.490 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Libreta Conejitos', '$2.490 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -220,7 +225,7 @@
                                     $2.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Libreta Conejita', '$2.990 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -255,7 +260,7 @@
                                     $2.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Libreta Panda', '$2.990 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -290,7 +295,7 @@
                                     $1.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Libreta Vaca', '$1.990 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>
@@ -325,7 +330,7 @@
                                     $2.990 C/U
                                 </li>
                             </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Libreta Planetas', '$2.990 C/U')" data-bs-dismiss="modal" type="button">
                                 <i class="fas fa-xmark me-1"></i>
                                 Añade al carrito
                             </button>

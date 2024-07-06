@@ -11,8 +11,8 @@ def contacto(request):
 def categorias(request):
     return render(request, 'app/categorias.html')
 
-def art_escolares(request):
-    return render(request, 'app/art_escolares.html')
+def artescolares(request):
+    return render(request, 'app/artescolares.html')
 
 def art_varios(request):
     return render(request, 'app/art_varios.html')

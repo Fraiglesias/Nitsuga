@@ -4,6 +4,11 @@
 
 {% block contenido %}
 
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'app/js/main.js' %}"></script>
+{% endblock %}
+
     <section class="page-section bg-dark text-white mb-0" id="portfolio">
     <div class="container">
         <div class="text-center">
@@ -129,7 +134,7 @@
                                         $2.990 C/U
                                     </li>
                                 </ul>
-                                <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Bolso Conejito', '$2.990 C/U')" data-bs-dismiss="modal" type="button">
                                     <i class="fas fa-xmark me-1"></i>
                                     Añade al carrito
                                 </button>
@@ -184,7 +189,7 @@
                                         $2.490 C/U
                                     </li>
                                 </ul>
-                                <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Bolso Gatito', '$2.490 C/U')" data-bs-dismiss="modal" type="button">
                                     <i class="fas fa-xmark me-1"></i>
                                     Añade al carrito
                                 </button>
@@ -239,7 +244,7 @@
                                         $3.990 C/U
                                     </li>
                                 </ul>
-                                <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Estuche Gato Squishy', '$3.990 C/U')" data-bs-dismiss="modal" type="button">
                                     <i class="fas fa-xmark me-1"></i>
                                     Añade al carrito
                                 </button>
@@ -274,7 +279,7 @@
                                         $2.990 C/U
                                     </li>
                                 </ul>
-                                <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Estuche Transparente', '$2.990 C/U')" data-bs-dismiss="modal" type="button">
                                     <i class="fas fa-xmark me-1"></i>
                                     Añade al carrito
                                 </button>
@@ -326,7 +331,7 @@
                                         $4.990 C/U
                                     </li>
                                 </ul>
-                                <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Lonchera cute', '$4.990 C/U')" data-bs-dismiss="modal" type="button">
                                     <i class="fas fa-xmark me-1"></i>
                                     Añade al carrito
                                 </button>
@@ -379,7 +384,7 @@
                                         $5.990 C/U
                                     </li>
                                 </ul>
-                                <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(1, 'Mochila Coreana', '$5.990 C/U')" data-bs-dismiss="modal" type="button">
                                     <i class="fas fa-xmark me-1"></i>
                                     Añade al carrito
                                 </button>
