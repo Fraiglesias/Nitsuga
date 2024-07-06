@@ -51,8 +51,14 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-    function goTo() {
-        window.location.href = "{% url 'login' %}";
-    };
 
 });
+
+
+function agregarAlCarrito(id) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push(id);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    alert('Producto agregado correctamente');
+    alert('Total en carrito: ' + carrito.length);
+};
