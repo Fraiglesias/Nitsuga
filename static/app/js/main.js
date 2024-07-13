@@ -65,14 +65,5 @@
 
         $(thisAlert).removeClass('alert-validate');
     }
-    alert('Producto agregado correctamente');
-    
 
 })(jQuery);
-
-alert('Producto agregado correctamente');
-
-$( document ).ready(function() {
-    alert('Producto agregado correctamente');
-
-});

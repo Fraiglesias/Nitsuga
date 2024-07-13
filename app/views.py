@@ -34,3 +34,18 @@ def nosotros(request):
 
 def peluches(request):
     return render(request, 'app/peluches.html')
+
+def gestion_home(request):
+    return render(request, 'app/gestion/home.html')
+
+def gestion_usuarios(request):
+    return render(request, 'app/gestion/usuarios.html')
+
+def gestion_roles(request):
+    return render(request, 'app/gestion/roles.html')
+
+def gestion_productos(request):
+    return render(request, 'app/gestion/productos.html')
+
+def gestion_categorias(request):
+    return render(request, 'app/gestion/categorias.html')
