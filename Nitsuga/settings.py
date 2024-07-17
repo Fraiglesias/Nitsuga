@@ -30,7 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = reverse_lazy('app:valida_login')
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = reverse_lazy('app:home')
 # Application definition
 
 INSTALLED_APPS = [

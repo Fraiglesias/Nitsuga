@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from app import views
 
 urlpatterns = [
@@ -42,4 +44,8 @@ urlpatterns = [
     path('gestion/categorias/', views.gestion_categorias, name="gestion_categorias"),
 
     path('accounts/', include('django.contrib.auth.urls')), 
+    # path('accounts/logout/', include('django.contrib.auth.urls')), 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
