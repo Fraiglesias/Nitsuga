@@ -1,6 +1,9 @@
 {% load static %}
 
 {% block contenido %}
+
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,17 +62,18 @@
         </ul>
         {% endif %}
         <form action="" method="post">
+            
             {% csrf_token %}
-            {{ form }}
-            <div class="form-floating">
+
+            {{ form | crispy }}
+            <!-- <div class="form-floating">
                 <input type="email" name="correo" class="form-control" id="correo" placeholder="name@example.com">
                 <label for="floatingInput">Correo</label>
             </div>
             <div class="form-floating">
                 <input type="password" name="contrasenia" class="form-control" id="contrasenia" placeholder="Password">
                 <label for="floatingPassword">Contraseña</label>
-            </div>
-
+            </div> -->
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Recordarme
