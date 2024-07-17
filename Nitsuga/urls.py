@@ -16,8 +16,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include ('app.urls')),
+    # path('', include('gestion.urls', namespace='gestion')),
+    path('', views.home, name="home"),
+    
+    path('contacto/', views.contacto, name="contacto"),
+    path('categorias/', views.categorias, name="categorias"),
+    path('artescolares/', views.artescolares, name="artescolares"),
+    path('art_varios/', views.art_varios, name="art_varios"),
+    path('bolsos_mochilas/', views.bolsos_mochilas, name="bolsos_mochilas"),
+    path('lamparas/', views.lamparas, name="lamparas"),
+    path('libretas_cuadernos/', views.libretas_cuadernos, name="libretas_cuadernos"),
+    path('login/', views.login, name="login"),
+    path('nosotros/', views.nosotros, name="nosotros"),
+    path('peluches/', views.peluches, name="peluches"),
+
+    path('gestion/home/', views.gestion_home, name='gestion_home'),
+    path('gestion/usuarios/', views.gestion_usuarios, name="gestion_usuarios"),
+    path('gestion/roles/', views.gestion_roles, name="gestion_roles"),
+    path('gestion/productos/', views.gestion_productos, name="gestion_productos"),
+    path('gestion/categorias/', views.gestion_categorias, name="gestion_categorias"),
+
+    path('accounts/', include('django.contrib.auth.urls')), 
 ]

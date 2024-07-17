@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import home, contacto, categorias, artescolares, art_varios, bolsos_mochilas, lamparas, libretas_cuadernos, login, nosotros, peluches, gestion_home, gestion_usuarios, gestion_roles, gestion_productos, gestion_categorias
+from .views import home, contacto, categorias, artescolares, art_varios, bolsos_mochilas, lamparas, libretas_cuadernos, login, nosotros, peluches, gestion_home, gestion_usuarios, gestion_roles, gestion_productos, gestion_categorias, valida_login
+
+app_name = 'app'
 
 urlpatterns = [
     path('', home, name="home"),
@@ -13,9 +15,11 @@ urlpatterns = [
     path('login/', login, name="login"),
     path('nosotros/', nosotros, name="nosotros"),
     path('peluches/', peluches, name="peluches"),
+    
     path('gestion/home/', gestion_home, name="gestion_home"),
     path('gestion/usuarios/', gestion_usuarios, name="gestion_usuarios"),
     path('gestion/roles/', gestion_roles, name="gestion_roles"),
     path('gestion/productos/', gestion_productos, name="gestion_productos"),
     path('gestion/categorias/', gestion_categorias, name="gestion_categorias"),
+    path('valida_login/', valida_login, name='valida_login'),
 ]

@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+#from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User, Group
+from django.contrib import messages
 
 # Create your views here.
 
@@ -49,3 +53,47 @@ def gestion_productos(request):
 
 def gestion_categorias(request):
     return render(request, 'app/gestion/categorias.html')
+
+def valida_login(request):
+    if request.user.is_authenticated:
+        user_groups = request.user.groups.values_list("name", flat=True)
+        if "Administrador" in user_groups:
+            return redirect('gestion_home')
+        elif "Cliente" in user_groups:
+            return redirect('home')
+        else:
+            return redirect('login')
+
+def valida_login_old(request):
+
+    if request.method == 'POST': 
+        correo = request.POST.get('correo')
+        contrasenia = request.POST.get('contrasenia')
+
+        # Validar si el usuario existe
+        try:
+            usuario = User.objects.get(email=correo)
+        except User.DoesNotExist:
+            messages.error(request, 'Usuario no encontrado.')
+            return redirect('contacto')
+
+        # Autenticar al usuario
+        usuario = authenticate(request, username=usuario.username, password=contrasenia)
+        if usuario is not None: # Verificar si el usuario pertenece al grupo 'administrador'
+            if usuario.groups.filter(name='Administrador').exists():
+                login(usuario) # Redirigir a la página de gestion después de iniciar sesión
+                return redirect('gestion/home') 
+            else:
+                login(usuario)
+                return redirect('home/')
+        else:
+            messages.error(request, 'Contraseña incorrecta.')
+            return redirect('login/')
+    else:
+        return render(request, 'home/')
+    
+#@login_required 
+
+#def gestion_home(request):
+    # Vista protegida para usuarios administradores
+   # return render(request, 'gestion/home.html')
