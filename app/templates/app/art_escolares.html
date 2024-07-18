@@ -11,6 +11,8 @@
             <h3 class="subtitle-category section-subheading">Revisa nuestra variedad de papelería escolar disponible :)</h3>
         </div>
         <div class="row">
+            {% for p in productos %}
+
             <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Categoría 1-->
                 <div class="portfolio-item">
@@ -21,13 +23,14 @@
                         <img class="img-fluid" src="{% static 'app/assets/img/portfolio/art_escolares/cortacarton_patita1.JPEG' %}" alt="..." />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Cortacartón Patita</div>
-                        <div class="portfolio-caption-subheading text-muted">$1.990 c/u</div>
+                        <div class="portfolio-caption-heading">{{ p.nombre }}</div>
+                        <div class="portfolio-caption-subheading text-muted">${{ p.precio }} c/u</div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+            <!--
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 2-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
                         <div class="portfolio-hover">
@@ -42,7 +45,6 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 3-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
                         <div class="portfolio-hover">
@@ -57,7 +59,6 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- Portfolio item 4-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
                         <div class="portfolio-hover">
@@ -72,7 +73,6 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- Portfolio item 5-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
                         <div class="portfolio-hover">
@@ -87,7 +87,6 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <!-- Portfolio item 6-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
                         <div class="portfolio-hover">
@@ -100,9 +99,11 @@
                         <div class="portfolio-caption-subheading text-muted">$8.990 pack</div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </section> 
+
+
 
 {% endblock %}

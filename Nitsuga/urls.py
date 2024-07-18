@@ -23,12 +23,11 @@ from app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include ('app.urls')),
-    # path('', include('gestion.urls', namespace='gestion')),
     path('', views.home, name="home"),
     
     path('contacto/', views.contacto, name="contacto"),
     path('categorias/', views.categorias, name="categorias"),
-    path('artescolares/', views.artescolares, name="artescolares"),
+    path('art_escolares/', views.art_escolares, name="art_escolares"),
     path('art_varios/', views.art_varios, name="art_varios"),
     path('bolsos_mochilas/', views.bolsos_mochilas, name="bolsos_mochilas"),
     path('lamparas/', views.lamparas, name="lamparas"),

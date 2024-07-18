@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 #from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.contrib import messages
-
+from .models import Producto, Categoria
 # Create your views here.
 
 def home(request):
@@ -13,31 +13,59 @@ def contacto(request):
     return render(request, 'app/contacto.html')
 
 def categorias(request):
-    return render(request, 'app/categorias.html')
+    categoria = Categoria.objects.all()
+    data = {
+        'categorias' : categoria
+    }
+    return render(request, 'app/categorias.html', data)
 
-def artescolares(request):
-    return render(request, 'app/artescolares.html')
+def art_escolares(request):
+    productos = Producto.objects.filter(categoria=1)
+    data = {
+        'productos' : productos
+    }
+    return render(request, 'app/art_escolares.html', data)
 
 def art_varios(request):
-    return render(request, 'app/art_varios.html')
+    productos = Producto.objects.filter(categoria=2)
+    data = {
+        'productos' : productos
+    }
+    return render(request, 'app/art_varios.html', data)
 
 def bolsos_mochilas(request):
-    return render(request, 'app/bolsos_mochilas.html')
+    productos = Producto.objects.filter(categoria=4)
+    data = {
+        'productos' : productos
+    }
+    return render(request, 'app/bolsos_mochilas.html', data)
 
 def lamparas(request):
-    return render(request, 'app/lamparas.html')
+    productos = Producto.objects.filter(categoria=7)
+    data = {
+        'productos' : productos
+    }
+    return render(request, 'app/lamparas.html', data)
 
 def libretas_cuadernos(request):
-    return render(request, 'app/libretas_cuadernos.html')
+    productos = Producto.objects.filter(categoria=5)
+    data = {
+        'productos' : productos
+    }
+    return render(request, 'app/libretas_cuadernos.html', data)
+
+def peluches(request):
+    productos = Producto.objects.filter(categoria=6)
+    data = {
+        'productos' : productos
+    }
+    return render(request, 'app/peluches.html', data)
 
 def login(request):
     return render(request, 'app/login.html')
 
 def nosotros(request):
     return render(request, 'app/nosotros.html')
-
-def peluches(request):
-    return render(request, 'app/peluches.html')
 
 def gestion_home(request):
     return render(request, 'app/gestion/home.html')
@@ -63,37 +91,3 @@ def valida_login(request):
             return redirect('home')
         else:
             return redirect('login')
-
-def valida_login_old(request):
-
-    if request.method == 'POST': 
-        correo = request.POST.get('correo')
-        contrasenia = request.POST.get('contrasenia')
-
-        # Validar si el usuario existe
-        try:
-            usuario = User.objects.get(email=correo)
-        except User.DoesNotExist:
-            messages.error(request, 'Usuario no encontrado.')
-            return redirect('contacto')
-
-        # Autenticar al usuario
-        usuario = authenticate(request, username=usuario.username, password=contrasenia)
-        if usuario is not None: # Verificar si el usuario pertenece al grupo 'administrador'
-            if usuario.groups.filter(name='Administrador').exists():
-                login(usuario) # Redirigir a la página de gestion después de iniciar sesión
-                return redirect('gestion/home') 
-            else:
-                login(usuario)
-                return redirect('home/')
-        else:
-            messages.error(request, 'Contraseña incorrecta.')
-            return redirect('login/')
-    else:
-        return render(request, 'home/')
-    
-#@login_required 
-
-#def gestion_home(request):
-    # Vista protegida para usuarios administradores
-   # return render(request, 'gestion/home.html')
