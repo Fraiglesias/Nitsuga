@@ -26,6 +26,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     
     path('contacto/', views.contacto, name="contacto"),
+    path('categorias/', include('app.urls')),
     path('categorias/', views.categorias, name="categorias"),
     path('art_escolares/', views.art_escolares, name="art_escolares"),
     path('art_varios/', views.art_varios, name="art_varios"),
@@ -35,7 +36,7 @@ urlpatterns = [
     path('login/', views.login, name="login"),
     path('nosotros/', views.nosotros, name="nosotros"),
     path('peluches/', views.peluches, name="peluches"),
-
+ 
     path('gestion/home/', views.gestion_home, name='gestion_home'),
     path('gestion/usuarios/', views.gestion_usuarios, name="gestion_usuarios"),
     path('gestion/roles/', views.gestion_roles, name="gestion_roles"),

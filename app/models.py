@@ -41,6 +41,7 @@ class Producto(models.Model):
     condicion = models.ForeignKey(Condicion, default="None", on_delete=models.PROTECT)
     categoria = models.ForeignKey(Categoria, default="None", on_delete=models.PROTECT)
 
+
     def __str__(self):
         return self.nombre
 

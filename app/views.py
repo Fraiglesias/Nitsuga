@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
-#from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.contrib import messages
 from .models import Producto, Categoria
+from .forms import ProductoForm
 # Create your views here.
 
 def home(request):
@@ -82,6 +82,10 @@ def gestion_productos(request):
 def gestion_categorias(request):
     return render(request, 'app/gestion/categorias.html')
 
+def detalle_categoria(request, pk):
+    categoria = get_object_or_404(Categoria, pk=pk)
+    return render(request, 'app/detalle_categoria.html', {'categoria': categoria})
+
 def valida_login(request):
     if request.user.is_authenticated:
         user_groups = request.user.groups.values_list("name", flat=True)
@@ -91,3 +95,54 @@ def valida_login(request):
             return redirect('home')
         else:
             return redirect('login')
+        
+def crear_producto(request):
+
+    data = { 
+        'form': ProductoForm()
+    }    
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            data["mensaje"] = "Producto creado correctamente"
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/producto/crear.html', data)
+
+def listar_producto(request):
+
+    productos = Producto.objects.all()
+
+    data = {
+        'productos' : productos
+    }
+
+    return render(request, 'app/producto/listar.html', data)    
+
+def editar_producto(request, id):
+
+    productos = get_object_or_404(Producto, id=id)
+
+    data = {
+        'form': ProductoForm(instance=productos)
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=productos)
+        if formulario.is_valid:
+            formulario.save()
+            return redirect('app:listar_producto')
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/producto/editar.html', data)
+
+def eliminar_producto(request, id):
+
+    productos = get_object_or_404(Producto, id=id)
+    productos.delete()
+    return redirect('app:listar_producto')
+
