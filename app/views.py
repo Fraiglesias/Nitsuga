@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User, Group
 from django.contrib import messages
-from .models import Producto, Categoria, Pedido, DetallePedido
-from .forms import ProductoForm
+from .models import Producto, Categoria, Pedido, DetallePedido, Marca, Colores, Condicion
+from .forms import ProductoForm, CategoriaForm, MarcaForm, ColoresForm, CondicionForm
 import json
 from django.http import JsonResponse
 # Create your views here.
@@ -154,6 +154,207 @@ def eliminar_producto(request, id):
     productos = get_object_or_404(Producto, id=id)
     productos.delete()
     return redirect('app:listar_producto')
+
+
+def crear_categoria(request):
+
+    data = { 
+        'form': CategoriaForm()
+    }    
+
+    if request.method == 'POST':
+        formulario = CategoriaForm(data=request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            data["mensaje"] = "Categoria creada correctamente"
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/categorias/crear.html', data)  
+
+def listar_categoria(request):
+
+    categorias = Categoria.objects.all()
+
+    data = {
+        'categorias' : categorias
+    }
+
+    return render(request, 'app/categorias/listar.html', data)
+
+def editar_categoria(request, id):
+
+    categorias = get_object_or_404(Categoria, id=id)
+
+    data = {
+        'form': CategoriaForm(instance=categorias)
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=categorias)
+        if formulario.is_valid:
+            formulario.save()
+            return redirect('app:listar_categorias')
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/categorias/editar.html', data)  
+
+def eliminar_categoria(request, id):
+
+    categorias = get_object_or_404(Categoria, id=id)
+    categorias.delete()
+    return redirect('app:listar_categoria')
+
+def crear_marca(request):
+
+    data = { 
+        'form': MarcaForm()
+    }    
+
+    if request.method == 'POST':
+        formulario = MarcaForm(data=request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            data["mensaje"] = "Marca creada correctamente"
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/marcas/crear.html', data)  
+
+def listar_marca(request):
+
+    marcas = Marca.objects.all()
+
+    data = {
+        'marcas' : marcas
+    }
+
+    return render(request, 'app/marcas/listar.html', data)
+
+def editar_marca(request, id):
+
+    marcas = get_object_or_404(Marca, id=id)
+
+    data = {
+        'form': MarcaForm(instance=marcas)
+    }
+
+    if request.method == 'POST':
+        formulario = MarcaForm(data=request.POST, instance=marcas)
+        if formulario.is_valid:
+            formulario.save()
+            return redirect('app:listar_marca')
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/marcas/editar.html', data)  
+
+def eliminar_marca(request, id):
+
+    marcas = get_object_or_404(Marca, id=id)
+    marcas.delete()
+    return redirect('app:listar_marca')
+
+def crear_color(request):
+
+    data = { 
+        'form': ColoresForm()
+    }    
+
+    if request.method == 'POST':
+        formulario = ColoresForm(data=request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            data["mensaje"] = "Color creado correctamente"
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/colores/crear.html', data)  
+
+def listar_color(request):
+
+    colores = Colores.objects.all()
+
+    data = {
+        'colores' : colores
+    }
+
+    return render(request, 'app/colores/listar.html', data)
+
+def editar_color(request, id):
+
+    colores = get_object_or_404(Colores, id=id)
+
+    data = {
+        'form': ColoresForm(instance=colores)
+    }
+
+    if request.method == 'POST':
+        formulario = ColoresForm(data=request.POST, instance=colores)
+        if formulario.is_valid:
+            formulario.save()
+            return redirect('app:listar_color')
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/colores/editar.html', data)  
+
+def eliminar_color(request, id):
+
+    colores = get_object_or_404(Colores, id=id)
+    colores.delete()
+    return redirect('app:listar_color')
+
+def crear_condicion(request):
+
+    data = { 
+        'form': CondicionForm()
+    }    
+
+    if request.method == 'POST':
+        formulario = CondicionForm(data=request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            data["mensaje"] = "Condicion creada correctamente"
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/condicion/crear.html', data)  
+
+def listar_condicion(request):
+
+    condicion = Condicion.objects.all()
+
+    data = {
+        'condicion' : condicion
+    }
+
+    return render(request, 'app/condicion/listar.html', data)
+
+def editar_condicion(request, id):
+
+    condicion = get_object_or_404(Condicion, id=id)
+
+    data = {
+        'form': CondicionForm(instance=condicion)
+    }
+
+    if request.method == 'POST':
+        formulario = CondicionForm(data=request.POST, instance=condicion)
+        if formulario.is_valid:
+            formulario.save()
+            return redirect('app:listar_condicion')
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/condicion/editar.html', data)  
+
+def eliminar_condicion(request, id):
+
+    condicion = get_object_or_404(Condicion, id=id)
+    condicion.delete()
+    return redirect('app:listar_condicion')
 
 def crear_pedido(request):
     if request.method == 'POST':
