@@ -10,97 +10,24 @@
             <h3 class="subtitle-category section-subheading">Revisa nuestra variedad de productos disponibles :)</h3>
         </div>
         <div class="row">
+            {% for c in categorias %}
             <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Categoría 1-->
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'artescolares' %}">
+                    <a class="portfolio-link" href="{% url 'app:detalle_categoria' c.id %}">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
                         <img class="img-fluid" src="{% static 'app/assets/img/portfolio/art_escolares.JPEG' %}" alt="..." />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Artículos Escolares</div>
-                        <div class="portfolio-caption-subheading text-muted">Todo lo que necesitas en papelería escolar con hermosos diseños.</div>
+                        <div class="portfolio-caption-heading">{{ c.nombre }}</div>
+                        <div class="portfolio-caption-subheading text-muted">{{ c.descripcion }}</div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Categoría 2-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'libretas_cuadernos' %}">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/libretas_cuadernoss.jpg' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Libretas y cuadernos</div>
-                        <div class="portfolio-caption-subheading text-muted">Lo necesario para escribir y dibujar todo lo que quieras.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Categoría 3-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'bolsos_mochilas' %}">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/bolsos_mochilas.jpg' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Bolsos y mochilas</div>
-                        <div class="portfolio-caption-subheading text-muted">¿Necesitas dónde guardar? ¡Aquí encuentras todo! :)</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- Categoría 4-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'peluches' %}">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/peluches.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Peluches</div>
-                        <div class="portfolio-caption-subheading text-muted">¿El mejor regalo? ¡Un hermoso peluche! ¡Lo encontrarás aquí!</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- Categoría 5-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'lamparas' %}">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/minilamparas.JPEG' %}" alt="..." >
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Mini lámparas</div>
-                        <div class="portfolio-caption-subheading text-muted">Ilumina tu habitación de la manera más tierna que puedas ¡y de Pokemón!</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <!-- Categoría 6-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'art_varios' %}">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/art_varios.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Artículos Varios</div>
-                        <div class="portfolio-caption-subheading text-muted">Diferentes cositas que no sabías que necesitabas :) </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                {% endfor %}
+        </div>    
     </div>
     </section> 
 
