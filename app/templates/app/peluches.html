@@ -4,323 +4,34 @@
 
 {% block contenido %}
 
-{% block scripts %}
-    {{ block.super }}
-    <script src="{% static 'app/js/main.js' %}"></script>
-{% endblock %}
-
 <section class="page-section bg-dark text-white mb-0" id="portfolio">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Peluches</h2>
-            <h3 class="subtitle-category section-subheading">Revisa nuestra variedad de hermosos peluches disponibles :)</h3>
+            <h3 class="subtitle-category section-subheading">Revisa nuestra variedad de peluches disponibles :)</h3>
         </div>
         <div class="row">
+            {% for p in productos %}
+
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Producto 1 -->
+                <!-- Categoría 1-->
                 <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                    <a class="portfolio-link" onclick="mostrarDetalleProducto('{{ p.id }}', '{{ p.nombre }}', '{{ p.descripcion }}', '${{ p.precio }}')">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
                         <img class="img-fluid" src="{% static 'app/assets/img/portfolio/peluches/peluche_bubbletea.PNG' %}" alt="..." />
                     </a>
                     <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Peluche BubbleTea</div>
-                        <div class="portfolio-caption-subheading text-muted">$4.990 c/u</div>
+                        <div class="portfolio-caption-heading">{{ p.nombre }}</div>
+                        <div class="portfolio-caption-subheading text-muted">${{ p.precio }} c/u</div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Producto 2-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/peluches/peluche_cinnamoroll.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Peluche Cinnamoroll</div>
-                        <div class="portfolio-caption-subheading text-muted">$14.990 c/u</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Producto 3-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/peluches/peluche_gato.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Peluche Gato</div>
-                        <div class="portfolio-caption-subheading text-muted">$4.990 c/u</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <!-- Producto 4-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/peluches/peluche_hamster.png' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Peluche Hamster</div>
-                        <div class="portfolio-caption-subheading text-muted">$4.990 c/u</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <!-- Producto 5-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/peluches/peluche_mymelody.png' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Peluche My Melody</div>
-                        <div class="portfolio-caption-subheading text-muted">$14.990 c/u</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <!-- Producto 6-->
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/peluches/peluche_panda.png' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Peluche Panda</div>
-                        <div class="portfolio-caption-subheading text-muted">$4.990 c/u</div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section> 
-<!-- Modals de Productos-->
-<!-- Modal popup Producto 1-->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Detalles producto -->
-                            <h2 class="text-uppercase">Peluche BubbleTea</h2>
-                            <p class="item-intro text-muted">Peluche diseño BubbleTea cute.</p>
-                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/peluches/peluche_bubbletea.PNG' %}" alt="..." />
-                            <p>Tierno peluche diseño BubbleTea de 24cm de alto. Especial para fanáticos de la bebida de burbujas.</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Colores:</strong>
-                                    Marrón
-                                </li>
-                                <li>
-                                    <strong>PRECIO:</strong>
-                                    $4.990 C/U
-                                </li>
-                            </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" onclick="agregarAlCarrito(1, 'Peluche BubbleTea', '$4.990 C/U')" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Añade al carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal popup Producto 2-->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Detalles producto -->
-                            <h2 class="text-uppercase">Peluche Cinnamoroll</h2>
-                            <p class="item-intro text-muted">Peluche diseño Cinnamoroll de la familia Sanrio.</p>
-                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/peluches/peluche_cinnamoroll.JPEG' %}" alt="..." />
-                            <p>Peluche de uno de los principales personajes de Sanrio, Cinnamoroll. Con 25cm de altura. Perfecto para fanáticos de HelloKitty y sus amigos.</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Colores:</strong>
-                                    Blanco
-                                </li>
-                                <li>
-                                    <strong>PRECIO:</strong>
-                                    $14.990 C/U
-                                </li>
-                            </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" onclick="agregarAlCarrito(1, 'Peluche Cinnamoroll', '$14.990 C/U')" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Añade al carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal popup Producto 3-->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Detalles producto -->
-                            <h2 class="text-uppercase">Peluche Gato</h2>
-                            <p class="item-intro text-muted">Peluche diseño de gato cute.</p>
-                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/peluches/peluche_gato.JPEG' %}" alt="..." />
-                            <p>Hermoso y esponjoso peluche de gatitos, para fanático de los michis. Con 24cm de largo y una preciosa carita.</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Colores:</strong>
-                                    Blanco
-                                </li>
-                                <li>
-                                    <strong>PRECIO:</strong>
-                                    $4.990 C/U
-                                </li>
-                            </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" onclick="agregarAlCarrito(1, 'Peluche Gato', '$4.990 C/U')" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Añade al carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal popup Producto 4-->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Detalles producto -->
-                            <h2 class="text-uppercase">Peluche Hamster</h2>
-                            <p class="item-intro text-muted">Peluche diseño de hamster cute.</p>
-                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/peluches/peluche_hamster.png' %}" alt="..." />
-                            <p>Esponjoso peluche con diseño de hamster. 24cm de largo. Perfecto para abrazar.</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Colores:</strong>
-                                    Gris
-                                </li>
-                                <li>
-                                    <strong>PRECIO:</strong>
-                                    $4.990 C/U
-                                </li>
-                            </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" onclick="agregarAlCarrito(1, 'Peluche Hamster', '$4.990 C/U')" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Añade al carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal popup Producto 5-->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' $}" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Detalles producto -->
-                            <h2 class="text-uppercase">Peluche My Melody</h2>
-                            <p class="item-intro text-muted">Peluche diseño My Melody de la familia Sanrio.</p>
-                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/peluches/peluche_mymelody.png' %}" alt="..." />
-                            <p>Peluche de uno de los principales personajes de Sanrio, My Melody. Con 25cm de altura. Perfecto para fanáticos de HelloKitty y sus amigos.</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Colores:</strong>
-                                    Rosa
-                                </li>
-                                <li>
-                                    <strong>PRECIO:</strong>
-                                    $14.990 C/U
-                                </li>
-                            </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" onclick="agregarAlCarrito(1, 'Peluche My Melody', '$14.990 C/U')" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Añade al carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!-- Modal popup Producto 6-->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="modal-body">
-                            <!-- Detalles producto -->
-                            <h2 class="text-uppercase">Peluche Panda</h2>
-                            <p class="item-intro text-muted">Peluche diseño de panda cute.</p>
-                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/peluches/peluche_panda.png' %}" alt="..." />
-                            <p>Esponjoso y precioso peluche con diseño de panda, creado directamente para abrazar. 25cm de largo.</p>
-                            <ul class="list-inline">
-                                <li>
-                                    <strong>Colores:</strong>
-                                    Negro
-                                </li>
-                                <li>
-                                    <strong>PRECIO:</strong>
-                                    $4.990 C/U
-                                </li>
-                            </ul>
-                            <button class="btn btn-outline-light btn-xl text-uppercase" data-bs-dismiss="modal" onclick="agregarAlCarrito(1, 'Peluche Panda', '$4.990 C/U')" type="button">
-                                <i class="fas fa-xmark me-1"></i>
-                                Añade al carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 {% endblock %}
