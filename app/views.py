@@ -84,9 +84,16 @@ def gestion_productos(request):
 def gestion_categorias(request):
     return render(request, 'app/gestion/categorias.html')
 
-def detalle_categoria(request, pk):
-    categoria = get_object_or_404(Categoria, pk=pk)
-    return render(request, 'app/detalle_categoria.html', {'categoria': categoria})
+def detalle_categoria(request, id):
+    categoria = get_object_or_404(Categoria, id=id)
+
+    productos = Producto.objects.filter(categoria=id)
+    data = {
+        'categoria': categoria,
+        'producto' : productos
+    }
+
+    return render(request, 'app/categorias.html', data)
 
 def valida_login(request):
     if request.user.is_authenticated:
