@@ -1,0 +1,37 @@
+{% extends 'app/gestion/base.html' %}
+
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+<br>
+<div class="row" style="background-color: #ffe4f5;">
+
+    <div class="col-12 col-md-6 offset-md-3">
+
+        <div class="card">
+            <div class="card-body">
+                <h2>Editar Marca</h2>
+                <hr>
+                <form action="" method="post">
+
+                    {% csrf_token %}
+        
+                    {{ form | crispy }}
+                    
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                        &nbsp;
+                        <input type="submit" value="Guardar cambios" class="btn btn-primary">
+                    </div>
+                </form>
+                {{mensaje}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
