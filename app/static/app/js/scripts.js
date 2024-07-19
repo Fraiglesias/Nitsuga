@@ -126,6 +126,7 @@ function eliminarDelCarrito(index) {
 
 function comprar() {
   const cliente_id = localStorage.getItem('cliente_id');
+  console.log(localStorage);
   if (cliente_id === 'None') {
     Swal.fire({
       title: "¡Ups!",

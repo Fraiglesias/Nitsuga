@@ -70,7 +70,11 @@ def nosotros(request):
     return render(request, 'app/nosotros.html')
 
 def gestion_home(request):
-    return render(request, 'app/gestion/home.html')
+    pedidos = Pedido.objects.all()
+    data = {
+        'pedidos' : pedidos
+    }
+    return render(request, 'app/gestion/home.html', data)
 
 def gestion_usuarios(request):
     return render(request, 'app/gestion/usuarios.html')
@@ -374,7 +378,7 @@ def crear_pedido(request):
 
         for producto_id in productos_ids:
             producto = Producto.objects.get(id=producto_id)
-            detalle_pedido = DetallePedido.objects.create(
+            DetallePedido.objects.create(
                 pedido=pedido,
                 producto=producto,
                 cantidad=1
