@@ -150,7 +150,6 @@ def eliminar_producto(request, id):
 
 def crear_pedido(request):
     if request.method == 'POST':
-        
         productos_ids = json.loads(request.POST['productos_ids'])
         productos_precio_total = request.POST['productos_precio_total']
         cliente_id = request.POST['cliente_id']
