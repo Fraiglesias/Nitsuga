@@ -15,58 +15,24 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
-          <th scope="col">Header</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Total</th>
         </tr>
       </thead>
       <tbody>
+        {% for pedido in pedidos %}
         <tr>
-          <td>1,001</td>
-          <td>random</td>
-          <td>data</td>
-          <td>placeholder</td>
-          <td>text</td>
+          <td>{{ pedido.id }}</td> 
+          <td>{{ pedido.cliente.username }}</td> 
+          <td>{{ pedido.fecha|date:"d/m/Y H:i:s" }}</td> 
+          <td>${{ pedido.total }}</td> 
         </tr>
-        <tr>
-          <td>1,002</td>
-          <td>placeholder</td>
-          <td>irrelevant</td>
-          <td>visual</td>
-          <td>layout</td>
-        </tr>
-        <tr>
-          <td>1,003</td>
-          <td>data</td>
-          <td>rich</td>
-          <td>dashboard</td>
-          <td>tabular</td>
-        </tr>
-        <tr>
-          <td>1,003</td>
-          <td>information</td>
-          <td>placeholder</td>
-          <td>illustrative</td>
-          <td>data</td>
-        </tr>
-        <tr>
-          <td>1,004</td>
-          <td>text</td>
-          <td>random</td>
-          <td>layout</td>
-          <td>dashboard</td>
-        </tr>
-        <tr>
-          <td>1,005</td>
-          <td>dashboard</td>
-          <td>irrelevant</td>
-          <td>text</td>
-          <td>placeholder</td>
-        </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
+
 </main>
 </div>
 </div>

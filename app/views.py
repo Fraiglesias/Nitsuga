@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User, Group
 from django.contrib import messages
-from .models import Producto, Categoria
+from .models import Producto, Categoria, Pedido, DetallePedido
 from .forms import ProductoForm
+import json
+from django.http import JsonResponse
 # Create your views here.
 
 def home(request):
@@ -146,3 +148,29 @@ def eliminar_producto(request, id):
     productos.delete()
     return redirect('app:listar_producto')
 
+def crear_pedido(request):
+    if request.method == 'POST':
+        
+        productos_ids = json.loads(request.POST['productos_ids'])
+        productos_precio_total = request.POST['productos_precio_total']
+        cliente_id = request.POST['cliente_id']
+
+        usuario = User.objects.get(id=cliente_id)
+
+        from datetime import datetime
+
+        pedido = Pedido.objects.create(
+            cliente=usuario,
+            total=productos_precio_total,
+            fecha=datetime.now()
+        )
+
+        for producto_id in productos_ids:
+            producto = Producto.objects.get(id=producto_id)
+            detalle_pedido = DetallePedido.objects.create(
+                pedido=pedido,
+                producto=producto,
+                cantidad=1
+            )
+
+    return JsonResponse({'status': 1})

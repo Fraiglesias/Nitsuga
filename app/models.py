@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 class Marca(models.Model):
@@ -45,3 +46,21 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
+class Pedido(models.Model):
+    cliente = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    fecha = models.DateTimeField()
+    total = models.IntegerField()
+
+    def __str__(self):
+        return self.cliente.username
+
+class DetallePedido(models.Model):
+    pedido = models.ForeignKey(Pedido, default="None", on_delete=models.PROTECT)
+    producto = models.ForeignKey(Producto, default="None", on_delete=models.PROTECT)
+    cantidad = models.IntegerField()
+
+    def __str__(self):
+        return self.pedido.cliente.username

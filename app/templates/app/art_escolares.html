@@ -16,7 +16,7 @@
             <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Categoría 1-->
                 <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                    <a class="portfolio-link" onclick="mostrarDetalleProducto('{{ p.id }}', '{{ p.nombre }}', '{{ p.descripcion }}', '{{ p.precio }}')">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
@@ -29,81 +29,60 @@
                 </div>
             </div>
             {% endfor %}
-            <!--
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/art_escolares/cortacarton_zanahoria1.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Cortacartón zanahoria</div>
-                        <div class="portfolio-caption-subheading text-muted">$1.990 c/u</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/art_escolares/gomaborrarlarga1.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Goma de borrar colores</div>
-                        <div class="portfolio-caption-subheading text-muted">$3.990 pack</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/art_escolares/lapiz_sanrio1.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Lápiz diseño Sanrio</div>
-                        <div class="portfolio-caption-subheading text-muted">$5.990 pack</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/art_escolares/lapiz_tintanegra1.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Lápiz diseño Cute</div>
-                        <div class="portfolio-caption-subheading text-muted">$3.990 pack</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="{% static 'app/assets/img/portfolio/art_escolares/plumon_doblepunta1.JPEG' %}" alt="..." />
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Plumon doblepunta</div>
-                        <div class="portfolio-caption-subheading text-muted">$8.990 pack</div>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 </section> 
 
+<!-- modal -->
+<div class="portfolio-modal modal fade" id="detalleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Detalles producto -->
+                            <h2 class="text-uppercase" id="nombre_producto"></h2>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app/assets/img/portfolio/lamparas/lampara_charmander.JPEG' %}" alt="..." />
+                            <p id="descripcion_producto"></p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Colores:</strong>
+                                    Naranja
+                                </li>
+                                <li>
+                                    <strong>PRECIO:</strong>
+                                    <p id="precio_producto"></p>
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-light btn-xl text-uppercase" onclick="agregarAlCarrito(localStorage.getItem('id_producto'), localStorage.getItem('nombre_producto'), localStorage.getItem('precio_producto'))" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Añade al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /modal -->
+<script>
 
+function mostrarDetalleProducto(id, nombre, descripcion, precio) {
+    $("#nombre_producto").text(nombre);
+    $("#descripcion_producto").text(descripcion);
+    $("#precio_producto").text(precio);
+
+    localStorage.setItem('id_producto', id);
+    localStorage.setItem('nombre_producto', nombre);
+    localStorage.setItem('descripcion_producto', descripcion);
+    localStorage.setItem('precio_producto', precio);
+    
+    $("#detalleModal").modal('show');
+};
+
+</script>
 
 {% endblock %}
