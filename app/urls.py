@@ -44,4 +44,5 @@ urlpatterns = [
     path('editar_condicion/<id>/', editar_condicion, name='editar_condicion'),
     path('eliminar_condicion/<id>/', eliminar_condicion, name='eliminar_condicion'),
     path('crear_pedido/', crear_pedido, name='crear_pedido'),
+    
 ]

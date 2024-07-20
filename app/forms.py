@@ -30,3 +30,4 @@ class CondicionForm(forms.ModelForm):
     class Meta:
         model = Condicion
         fields = '__all__'
+

@@ -4,8 +4,10 @@ from django.contrib.auth.models import User, Group
 from django.contrib import messages
 from .models import Producto, Categoria, Pedido, DetallePedido, Marca, Colores, Condicion
 from .forms import ProductoForm, CategoriaForm, MarcaForm, ColoresForm, CondicionForm
+from django.contrib.auth.decorators import login_required
 import json
 from django.http import JsonResponse
+
 # Create your views here.
 
 def home(request):
@@ -69,6 +71,7 @@ def login(request):
 def nosotros(request):
     return render(request, 'app/nosotros.html')
 
+@login_required
 def gestion_home(request):
     pedidos = Pedido.objects.all()
     data = {
@@ -109,6 +112,7 @@ def valida_login(request):
         else:
             return redirect('login')
         
+@login_required        
 def crear_producto(request):
 
     data = { 
@@ -125,6 +129,7 @@ def crear_producto(request):
 
     return render(request, 'app/producto/crear.html', data)
 
+@login_required
 def listar_producto(request):
 
     productos = Producto.objects.all()
@@ -135,6 +140,7 @@ def listar_producto(request):
 
     return render(request, 'app/producto/listar.html', data)    
 
+@login_required
 def editar_producto(request, id):
 
     productos = get_object_or_404(Producto, id=id)
@@ -153,13 +159,14 @@ def editar_producto(request, id):
 
     return render(request, 'app/producto/editar.html', data)
 
+@login_required
 def eliminar_producto(request, id):
 
     productos = get_object_or_404(Producto, id=id)
     productos.delete()
     return redirect('app:listar_producto')
 
-
+@login_required
 def crear_categoria(request):
 
     data = { 
@@ -176,6 +183,7 @@ def crear_categoria(request):
 
     return render(request, 'app/categorias/crear.html', data)  
 
+@login_required
 def listar_categoria(request):
 
     categorias = Categoria.objects.all()
@@ -186,6 +194,7 @@ def listar_categoria(request):
 
     return render(request, 'app/categorias/listar.html', data)
 
+@login_required
 def editar_categoria(request, id):
 
     categorias = get_object_or_404(Categoria, id=id)
@@ -195,21 +204,24 @@ def editar_categoria(request, id):
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=categorias)
+        formulario = CategoriaForm(data=request.POST, instance=categorias)
         if formulario.is_valid:
+
             formulario.save()
-            return redirect('app:listar_categorias')
+            return redirect('app:listar_categoria')
         else:
             data["form"] = formulario
 
     return render(request, 'app/categorias/editar.html', data)  
 
+@login_required
 def eliminar_categoria(request, id):
 
     categorias = get_object_or_404(Categoria, id=id)
     categorias.delete()
     return redirect('app:listar_categoria')
 
+@login_required
 def crear_marca(request):
 
     data = { 
@@ -226,6 +238,7 @@ def crear_marca(request):
 
     return render(request, 'app/marcas/crear.html', data)  
 
+@login_required
 def listar_marca(request):
 
     marcas = Marca.objects.all()
@@ -236,6 +249,7 @@ def listar_marca(request):
 
     return render(request, 'app/marcas/listar.html', data)
 
+@login_required
 def editar_marca(request, id):
 
     marcas = get_object_or_404(Marca, id=id)
@@ -254,12 +268,14 @@ def editar_marca(request, id):
 
     return render(request, 'app/marcas/editar.html', data)  
 
+@login_required
 def eliminar_marca(request, id):
 
     marcas = get_object_or_404(Marca, id=id)
     marcas.delete()
     return redirect('app:listar_marca')
 
+@login_required
 def crear_color(request):
 
     data = { 
@@ -276,6 +292,7 @@ def crear_color(request):
 
     return render(request, 'app/colores/crear.html', data)  
 
+@login_required
 def listar_color(request):
 
     colores = Colores.objects.all()
@@ -286,6 +303,7 @@ def listar_color(request):
 
     return render(request, 'app/colores/listar.html', data)
 
+@login_required
 def editar_color(request, id):
 
     colores = get_object_or_404(Colores, id=id)
@@ -304,12 +322,14 @@ def editar_color(request, id):
 
     return render(request, 'app/colores/editar.html', data)  
 
+@login_required
 def eliminar_color(request, id):
 
     colores = get_object_or_404(Colores, id=id)
     colores.delete()
     return redirect('app:listar_color')
 
+@login_required
 def crear_condicion(request):
 
     data = { 
@@ -326,6 +346,7 @@ def crear_condicion(request):
 
     return render(request, 'app/condicion/crear.html', data)  
 
+@login_required
 def listar_condicion(request):
 
     condicion = Condicion.objects.all()
@@ -336,6 +357,7 @@ def listar_condicion(request):
 
     return render(request, 'app/condicion/listar.html', data)
 
+@login_required
 def editar_condicion(request, id):
 
     condicion = get_object_or_404(Condicion, id=id)
@@ -354,12 +376,14 @@ def editar_condicion(request, id):
 
     return render(request, 'app/condicion/editar.html', data)  
 
+@login_required
 def eliminar_condicion(request, id):
 
     condicion = get_object_or_404(Condicion, id=id)
     condicion.delete()
     return redirect('app:listar_condicion')
 
+@login_required
 def crear_pedido(request):
     if request.method == 'POST':
         productos_ids = json.loads(request.POST['productos_ids'])
