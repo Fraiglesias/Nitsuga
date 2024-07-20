@@ -43,6 +43,7 @@ urlpatterns = [
     path('gestion/productos/', views.gestion_productos, name="gestion_productos"),
     path('gestion/categorias/', views.gestion_categorias, name="gestion_categorias"),
 
+
     path('accounts/', include('django.contrib.auth.urls')), 
     # path('accounts/logout/', include('django.contrib.auth.urls')), 
 ]
